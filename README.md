@@ -1,4 +1,6 @@
-# Correlation and regression for data analysis
+# EX-03 Correlation and regression for data analysis
+
+## DATE : 22.09.2023
 # Aim : 
 
 To analyse given data using coeffificient of correlation and regression line
@@ -20,10 +22,47 @@ If y represents the dependent variable and x the independent variable, this rela
 ![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
 
 # Program :
+```
+Developed By: SUJITHRA B K N
+Reg.No:212222230153
 
-![image](https://github.com/ramjan1729/Correlation_Regression/assets/103921593/9eb48cbf-8ca3-4cd9-8440-ff45fd98333e)
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+x=[ int(i) for i in input().split()]
+y=[ int(i) for i in input().split()]
+N=len(x)
+Sx=0
+Sy=0
+Sxy=0
+Sx2=0
+Sy2=0
+for i in range(0,N):
+    Sx=Sx+x[i]
+    Sy=Sy+y[i]
+    Sxy=Sxy+x[i]*y[i]
+    Sx2=Sx2+x[i]**2
+    Sy2=Sy2+y[i]**2
+r=(N*Sxy-Sx*Sy)/(math.sqrt(N*Sx2-Sx**2)*math.sqrt(N*Sy2-Sy**2))
+print("The Correlation coefficient is %0.3f"%r)
+byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2)
+xmean=Sx/N
+ymean=Sy/N
+print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)"%(ymean,byx,xmean))
+plt.scatter(x,y)
+def Reg(x):
+  return ymean + byx*(x-xmean)
+x=np.linspace(20,80,51)
+y1=Reg(x)
+plt.plot(x,y1,'r')
+plt.xlabel('x-data')
+plt.ylabel('y-data')
+plt.legend(['Regression Line','Data points'])
+```
 
+# Output :
+![280925351-c59f22b4-306f-4670-83d1-7acd93d8c41b](https://github.com/sujithrabkn/Correlation_Regression/assets/119477857/c9f864b4-dd44-4a10-880e-985cea8d8c92)
 
-# Result
+# Result : 
 
-# Output 
+The correlatiom and regression for data analysis of object from feeder using probability distribution are calculated.
